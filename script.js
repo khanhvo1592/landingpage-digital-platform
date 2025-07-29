@@ -259,109 +259,136 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Platform link tracking and modal functionality
+// Modern platform cards interaction
 document.addEventListener('DOMContentLoaded', function() {
-    const platformLinks = document.querySelectorAll('.platform-link');
-    const platformCards = document.querySelectorAll('.platform-card');
+    const modernCards = document.querySelectorAll('.modern-card');
+    const visitButtons = document.querySelectorAll('.visit-btn');
     
-    // Platform data for modal
-    const platformData = {
-        'Báo Cần Thơ Online': {
+    // Platform data for modern cards
+    const modernPlatformData = {
+        'news': {
+            title: 'Báo Cần Thơ Online',
             image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=300&fit=crop&crop=center',
             description: 'Báo điện tử chính thống của thành phố Cần Thơ, cung cấp tin tức địa phương, thời sự, kinh tế, văn hóa, thể thao và các thông tin quan trọng khác.',
-            link: 'https://baocantho.com.vn'
+            links: [
+                { text: 'Truy cập website', url: 'https://baocantho.com.vn', icon: 'fas fa-external-link-alt' }
+            ]
         },
-        'Web Truyền hình Cần Thơ': {
+        'tv': {
+            title: 'Web Truyền hình Cần Thơ',
             image: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600&h=300&fit=crop&crop=center',
             description: 'Website truyền hình trực tuyến với các chương trình tin tức, giải trí, phóng sự và các sự kiện quan trọng của thành phố Cần Thơ.',
-            link: '#'
+            links: [
+                { text: 'Truy cập website', url: '#', icon: 'fas fa-external-link-alt' }
+            ]
         },
-        'Web Phát thanh Cần Thơ': {
+        'radio': {
+            title: 'Web Phát thanh Cần Thơ',
             image: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=300&fit=crop&crop=center',
             description: 'Kênh phát thanh trực tuyến với các chương trình âm nhạc, tin tức, giải trí và thông tin hữu ích cho người dân.',
-            link: '#'
+            links: [
+                { text: 'Truy cập website', url: '#', icon: 'fas fa-external-link-alt' }
+            ]
         },
-        'Cần Thơ TV': {
+        'youtube': {
+            title: 'YouTube Channels',
             image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=300&fit=crop&crop=center',
-            description: 'Kênh YouTube chính thức của Đài Truyền hình Cần Thơ với các video tin tức, phóng sự và nội dung đa dạng.',
-            link: 'https://youtube.com/c/CanThoTV'
+            description: '3 kênh YouTube chính thức: Cần Thơ TV (truyền hình), Cần Thơ Radio (phát thanh), và Cần Thơ News (tin tức nhanh).',
+            links: [
+                { text: 'Cần Thơ TV', url: 'https://youtube.com/c/CanThoTV', icon: 'fab fa-youtube' },
+                { text: 'Cần Thơ Radio', url: '#', icon: 'fab fa-youtube' },
+                { text: 'Cần Thơ News', url: '#', icon: 'fab fa-youtube' }
+            ]
         },
-        'Cần Thơ Radio': {
-            image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=300&fit=crop&crop=center',
-            description: 'Kênh YouTube của Đài Phát thanh Cần Thơ với các chương trình âm nhạc, tin tức và giải trí.',
-            link: '#'
-        },
-        'Cần Thơ News': {
-            image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=300&fit=crop&crop=center',
-            description: 'Kênh tin tức nhanh với các bản tin cập nhật liên tục về các sự kiện quan trọng của thành phố.',
-            link: '#'
-        },
-        'Cần Thơ TV TikTok': {
+        'tiktok': {
+            title: 'TikTok Channels',
             image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop&crop=center',
-            description: 'Kênh TikTok với nội dung video ngắn, tin tức nhanh và giải trí dành cho giới trẻ.',
-            link: '#'
+            description: '2 kênh TikTok chuyên về nội dung video ngắn: Cần Thơ TV TikTok (giải trí) và Cần Thơ News TikTok (tin tức nhanh).',
+            links: [
+                { text: 'Cần Thơ TV TikTok', url: '#', icon: 'fab fa-tiktok' },
+                { text: 'Cần Thơ News TikTok', url: '#', icon: 'fab fa-tiktok' }
+            ]
         },
-        'Cần Thơ News TikTok': {
+        'facebook': {
+            title: 'Facebook Pages',
             image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop&crop=center',
-            description: 'Kênh TikTok chuyên về tin tức nhanh, phóng sự ngắn và cập nhật thời sự.',
-            link: '#'
+            description: '3 trang Facebook chính thức: Báo Cần Thơ, Truyền hình Cần Thơ, và Phát thanh Cần Thơ với nội dung đa dạng.',
+            links: [
+                { text: 'Báo Cần Thơ Facebook', url: '#', icon: 'fab fa-facebook' },
+                { text: 'Truyền hình Cần Thơ Facebook', url: '#', icon: 'fab fa-facebook' },
+                { text: 'Phát thanh Cần Thơ Facebook', url: '#', icon: 'fab fa-facebook' }
+            ]
         },
-        'Báo Cần Thơ Facebook': {
+        'zalo': {
+            title: 'Zalo Official Account',
             image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop&crop=center',
-            description: 'Trang Facebook chính thức của Báo Cần Thơ với tin tức cập nhật và tương tác với độc giả.',
-            link: '#'
+            description: 'Kênh Zalo chính thức của Báo & PT-TH Cần Thơ với tin tức, tương tác trực tiếp và thông tin hữu ích cho độc giả.',
+            links: [
+                { text: 'Official Account', url: '#', icon: 'fas fa-comments' }
+            ]
         },
-        'Truyền hình Cần Thơ Facebook': {
-            image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop&crop=center',
-            description: 'Trang Facebook của Đài Truyền hình với video, livestream và nội dung đa phương tiện.',
-            link: '#'
-        },
-        'Phát thanh Cần Thơ Facebook': {
-            image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop&crop=center',
-            description: 'Trang Facebook của Đài Phát thanh với âm nhạc, tin tức và các chương trình giải trí.',
-            link: '#'
-        },
-        'Báo &  PT-TH Cần Thơ Zalo': {
-            image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop&crop=center',
-            description: 'Kênh Zalo chính thức với tin tức, tương tác trực tiếp và thông tin hữu ích cho độc giả.',
-            link: '#'
-        },
-        'Ứng dụng "Truyền hình Cần Thơ"': {
+        'mobile': {
+            title: 'Mobile App',
             image: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600&h=300&fit=crop&crop=center',
-            description: 'Ứng dụng mobile cho phép xem truyền hình trực tuyến, xem lại chương trình và lịch phát sóng chi tiết.',
-            link: '#'
+            description: 'Ứng dụng mobile "Truyền hình Cần Thơ" cho phép xem truyền hình trực tuyến, xem lại chương trình và lịch phát sóng chi tiết.',
+            links: [
+                { text: 'Google Play', url: '#', icon: 'fab fa-google-play' },
+                { text: 'App Store', url: '#', icon: 'fab fa-apple' }
+            ]
         }
     };
     
-    // Add click event to platform cards
-    platformCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const platformName = this.querySelector('h3').textContent;
-            const data = platformData[platformName];
+    // Add click event to modern cards
+    modernCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on visit buttons
+            if (e.target.closest('.visit-btn')) {
+                return;
+            }
+            
+            const category = this.getAttribute('data-category');
+            const data = modernPlatformData[category];
             
             if (data) {
-                showModal(platformName, data.image, data.description, data.link);
+                showModernModal(data);
             }
         });
         
-        // Add hover animation
-        card.addEventListener('mouseenter', function() {
-            this.style.cursor = 'pointer';
-            this.classList.add('pulse');
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.classList.remove('pulse');
-        });
+            // Add 3D hover effects
+    card.addEventListener('mouseenter', function() {
+        this.style.cursor = 'pointer';
     });
     
-    // Platform link tracking
-    platformLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent card click when clicking link
+    // 3D mouse tracking effect
+    card.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.03)`;
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+    });
+    });
+    
+    // Visit button tracking
+    visitButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent card click
             const linkText = this.textContent.trim();
-            const platformName = this.closest('.platform-card').querySelector('h3').textContent;
-            console.log(`User clicked on: ${linkText} from ${platformName}`);
+            const card = this.closest('.modern-card');
+            const category = card.getAttribute('data-category');
+            const data = modernPlatformData[category];
+            
+            console.log(`User clicked on: ${linkText} from ${data.title}`);
             
             // For external links, allow normal behavior
             if (this.getAttribute('href') && this.getAttribute('href') !== '#') {
@@ -370,10 +397,76 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // For placeholder links, prevent default and show message
             e.preventDefault();
-            showNotification(`Link ${platformName} sẽ được cập nhật sau`, 'info');
+            showNotification(`Link ${data.title} sẽ được cập nhật sau`, 'info');
         });
     });
 });
+
+// Show modern modal
+function showModernModal(data) {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
+    
+    // Set modal content
+    modalImg.src = data.image;
+    modalImg.alt = data.title;
+    modalTitle.textContent = data.title;
+    modalDescription.textContent = data.description;
+    
+    // Create links HTML
+    let linksHTML = '';
+    data.links.forEach(link => {
+        linksHTML += `
+            <a href="${link.url}" class="platform-link" target="_blank">
+                <i class="${link.icon}"></i>
+                ${link.text}
+            </a>
+        `;
+    });
+    
+    // Update modal link section
+    const modalLinksContainer = modal.querySelector('.modal-text');
+    const existingLink = modalLinksContainer.querySelector('#modal-link');
+    if (existingLink) {
+        existingLink.remove();
+    }
+    
+    // Add new links
+    const linksDiv = document.createElement('div');
+    linksDiv.className = 'modal-links';
+    linksDiv.innerHTML = linksHTML;
+    modalLinksContainer.appendChild(linksDiv);
+    
+    // Show modal
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Close modal functionality
+    const closeBtn = modal.querySelector('.close');
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal when clicking outside
+    modal.onclick = function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
 // Lazy loading for images (if needed)
 document.addEventListener('DOMContentLoaded', function() {
