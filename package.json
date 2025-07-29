@@ -1,0 +1,33 @@
+{
+  "name": "landingpage-digital-platform",
+  "version": "1.0.0",
+  "description": "Landing page hiện đại cho các nền tảng số của Báo & Đài PT-TH Cần Thơ",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "live-server --port=8000",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "landing-page",
+    "digital-platform",
+    "responsive",
+    "modern-ui",
+    "vietnam",
+    "media"
+  ],
+  "author": "Báo & Đài PT-TH Cần Thơ",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/landingpage-digital-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/landingpage-digital-platform/issues"
+  },
+  "homepage": "https://github.com/your-username/landingpage-digital-platform#readme"
+} 
