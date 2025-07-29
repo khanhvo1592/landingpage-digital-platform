@@ -354,29 +354,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-            // Add 3D hover effects
-    card.addEventListener('mouseenter', function() {
-        this.style.cursor = 'pointer';
-    });
-    
-    // 3D mouse tracking effect
-    card.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        // Add 3D hover effects
+        card.addEventListener('mouseenter', function() {
+            this.style.cursor = 'pointer';
+        });
         
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        // 3D mouse tracking effect
+        card.addEventListener('mousemove', function(e) {
+            requestAnimationFrame(() => {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.03)`;
+            });
+        });
         
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        
-        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.03)`;
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
-    });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+        });
     });
     
     // Visit button tracking
