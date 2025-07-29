@@ -742,4 +742,91 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.boxShadow = '';
         });
     });
+});
+
+// Floating Action Buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const shareBtn = document.getElementById('share-btn');
+    const callBtn = document.getElementById('call-btn');
+    
+    // Share functionality
+    shareBtn.addEventListener('click', function() {
+        if (navigator.share) {
+            // Use Web Share API if available
+            navigator.share({
+                title: 'Chuyển đổi số cùng Báo & PT-TH Cần Thơ',
+                text: 'Khám phá các nền tảng số của Báo & Phát thanh - Truyền hình Cần Thơ',
+                url: window.location.href
+            }).then(() => {
+                showNotification('Đã chia sẻ thành công!', 'success');
+            }).catch((error) => {
+                console.log('Error sharing:', error);
+                fallbackShare();
+            });
+        } else {
+            fallbackShare();
+        }
+    });
+    
+    // Fallback share method
+    function fallbackShare() {
+        const url = window.location.href;
+        const text = 'Chuyển đổi số cùng Báo & PT-TH Cần Thơ - Khám phá các nền tảng số!';
+        
+        // Try to copy to clipboard
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
+                showNotification('Đã sao chép link vào clipboard!', 'success');
+            }).catch(() => {
+                // Fallback to alert
+                alert(`${text}\n${url}`);
+            });
+        } else {
+            // Fallback to alert
+            alert(`${text}\n${url}`);
+        }
+    }
+    
+    // Call functionality
+    callBtn.addEventListener('click', function() {
+        const phoneNumber = '0979989978';
+        
+        // Check if it's a mobile device
+        if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Mobile device - try to open phone app
+            window.location.href = `tel:${phoneNumber}`;
+        } else {
+            // Desktop - show phone number
+            showNotification(`Số điện thoại: ${phoneNumber}`, 'info');
+            
+            // Also try to copy to clipboard
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(phoneNumber).then(() => {
+                    showNotification('Đã sao chép số điện thoại vào clipboard!', 'success');
+                }).catch(() => {
+                    // Fallback
+                });
+            }
+        }
+    });
+    
+    // Add hover effects for floating buttons
+    const floatingBtns = document.querySelectorAll('.floating-btn');
+    floatingBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.1)';
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        btn.addEventListener('click', function() {
+            // Add click animation
+            this.style.transform = 'translateY(-2px) scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(0) scale(1)';
+            }, 150);
+        });
+    });
 }); 
