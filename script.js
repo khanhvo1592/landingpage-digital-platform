@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Trang Facebook của Đài Phát thanh với âm nhạc, tin tức và các chương trình giải trí.',
             link: '#'
         },
-        'Báo & Đài PT-TH Cần Thơ Zalo': {
+        'Báo &  PT-TH Cần Thơ Zalo': {
             image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop&crop=center',
             description: 'Kênh Zalo chính thức với tin tức, tương tác trực tiếp và thông tin hữu ích cho độc giả.',
             link: '#'
@@ -483,8 +483,8 @@ function showWelcomeModal() {
     
     // Set welcome modal content
     modalImg.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=300&fit=crop&crop=center';
-    modalImg.alt = 'Chào mừng đến với Báo & Đài PT-TH Cần Thơ';
-    modalTitle.textContent = '🎉 Chào mừng đến với Báo & Đài PT-TH Cần Thơ';
+    modalImg.alt = 'Chào mừng đến với Báo &  PT-TH Cần Thơ';
+    modalTitle.textContent = '🎉 Chào mừng đến với Báo &  PT-TH Cần Thơ';
     modalDescription.innerHTML = `
         <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #1e40af; font-weight: 600;">
             Khám phá các nền tảng số hiện đại của chúng tôi:

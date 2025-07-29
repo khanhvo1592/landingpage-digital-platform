@@ -1,6 +1,6 @@
-# Landing Page - Báo & Đài PT-TH Cần Thơ
+# Landing Page - Báo &  PT-TH Cần Thơ
 
-Landing page hiện đại và responsive cho các nền tảng số của Báo & Đài Phát thanh - Truyền hình Cần Thơ.
+Landing page hiện đại và responsive cho các nền tảng số của Báo &  Phát thanh - Truyền hình Cần Thơ.
 
 ## 🚀 Tính năng
 
@@ -211,7 +211,7 @@ Nếu có vấn đề hoặc cần hỗ trợ, vui lòng:
 
 ## 📄 License
 
-Dự án này được tạo cho Báo & Đài PT-TH Cần Thơ.
+Dự án này được tạo cho Báo &  PT-TH Cần Thơ.
 
 ---
 

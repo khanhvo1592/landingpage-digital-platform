@@ -1,7 +1,7 @@
 {
   "name": "landingpage-digital-platform",
   "version": "1.0.0",
-  "description": "Landing page hiện đại cho các nền tảng số của Báo & Đài PT-TH Cần Thơ",
+  "description": "Landing page hiện đại cho các nền tảng số của Báo &  PT-TH Cần Thơ",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000",
@@ -17,7 +17,7 @@
     "vietnam",
     "media"
   ],
-  "author": "Báo & Đài PT-TH Cần Thơ",
+  "author": "Báo &  PT-TH Cần Thơ",
   "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.2"

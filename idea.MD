@@ -1,4 +1,4 @@
-ới thiệu tổng quan các nền tảng số đang triển khai và vận hành bởi Báo & Đài PT-TH Cần Thơ.
+ới thiệu tổng quan các nền tảng số đang triển khai và vận hành bởi Báo &  PT-TH Cần Thơ.
 	•	Tăng mức độ nhận diện thương hiệu số.
 	•	Hướng dẫn người dùng tiếp cận các nền tảng (ứng dụng di động, website, mạng xã hội…).
 	•	Tối ưu chuyển đổi: khuyến khích tải app, xem truyền hình trực tuyến, theo dõi mạng xã hội.
@@ -8,7 +8,7 @@
 🧾 I. YÊU CẦU CHỨC NĂNG
 
 1. Phần Header
-	•	Logo Báo & Đài PT-TH Cần Thơ.
+	•	Logo Báo &  PT-TH Cần Thơ.
 	•	Menu điều hướng:
 	•	Giới thiệu
 	•	Nền tảng số
@@ -17,7 +17,7 @@
 
 2. Banner chính (Hero section)
 	•	Hình ảnh hoặc video động về phòng tin tức, phát sóng, ứng dụng di động.
-	•	Tiêu đề chính: “Chuyển đổi số cùng Báo & Đài Phát thanh - Truyền hình Cần Thơ”.
+	•	Tiêu đề chính: “Chuyển đổi số cùng Báo &  Phát thanh - Truyền hình Cần Thơ”.
 	•	Nút kêu gọi hành động (CTA): “Khám phá ngay”, “Tải ứng dụng”.
 
 3. Giới thiệu tổng quan
@@ -65,7 +65,7 @@ Ví dụ:
 Phong cách
 Hiện đại, rõ ràng, chuyên nghiệp, mang đậm chất “chính thống số”.
 Tông màu chủ đạo
-Xanh dương, trắng, cam (theo bộ nhận diện của Báo & Đài nếu có).
+Xanh dương, trắng, cam (theo bộ nhận diện của Báo &  nếu có).
 Tương thích
 Responsive 100% (desktop, tablet, mobile).
 Hiệu ứng UI
