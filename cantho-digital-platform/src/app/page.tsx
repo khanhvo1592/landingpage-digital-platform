@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import TVOnline from '@/components/TVOnline'
 import Introduction from '@/components/Introduction'
 import Platforms from '@/components/Platforms'
 import Tutorial from '@/components/Tutorial'
@@ -15,55 +14,55 @@ import Modal from '@/components/Modal'
 import type { Platform } from '@/components/Platforms'
 
 export default function Home() {
-  const [modalState, setModalState] = useState({
+  const [modalState, setModalState] = useState<{
+    isOpen: boolean
+    type: 'welcome' | 'platform'
+    platform?: Platform
+  }>({
     isOpen: false,
-    type: 'welcome' as 'platform' | 'welcome',
-    platform: undefined as Platform | undefined
+    type: 'welcome'
   })
 
-  const showWelcomeModal = useCallback(() => {
-    setModalState(prev => ({
-      ...prev,
-      isOpen: true,
-      type: 'welcome',
-      platform: undefined
-    }))
+  // Show welcome modal on page load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setModalState({
+        isOpen: true,
+        type: 'welcome'
+      })
+    }, 2000) // Show after 2 seconds
+
+    return () => clearTimeout(timer)
   }, [])
 
-  const showPlatformModal = useCallback((platform: Platform) => {
-    setModalState(prev => ({
-      ...prev,
+  const handleShowWelcomeModal = () => {
+    setModalState({
+      isOpen: true,
+      type: 'welcome'
+    })
+  }
+
+  const handleShowPlatformModal = (platform: Platform) => {
+    setModalState({
       isOpen: true,
       type: 'platform',
       platform
-    }))
-  }, [])
+    })
+  }
 
-  const closeModal = useCallback(() => {
+  const handleCloseModal = () => {
     setModalState(prev => ({
       ...prev,
-      isOpen: false,
-      type: 'welcome',
-      platform: undefined
+      isOpen: false
     }))
-  }, [])
-
-  // Auto-show welcome modal after 2 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      showWelcomeModal()
-    }, 2000)
-
-    return () => clearTimeout(timer)
-  }, [showWelcomeModal])
+  }
 
   return (
     <main className="min-h-screen">
       <Header />
-      <Hero onShowWelcomeModal={showWelcomeModal} />
-      <TVOnline />
+      <Hero onShowWelcomeModal={handleShowWelcomeModal} />
       <Introduction />
-      <Platforms onShowModal={showPlatformModal} />
+      <Platforms onShowModal={handleShowPlatformModal} />
       <Tutorial />
       <Download />
       <Contact />
@@ -71,9 +70,9 @@ export default function Home() {
       <FloatingButtons />
       <Modal
         isOpen={modalState.isOpen}
+        onClose={handleCloseModal}
         type={modalState.type}
         platform={modalState.platform}
-        onClose={closeModal}
       />
     </main>
   )
