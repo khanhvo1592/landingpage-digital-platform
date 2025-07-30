@@ -1,0 +1,52 @@
+{
+  "name": "cantho-digital-platform",
+  "version": "1.0.0",
+  "description": "Landing page for Báo & PT-TH Cần Thơ digital platforms",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "export": "next build && next export",
+    "analyze": "ANALYZE=true next build"
+  },
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "next": "15.1.6",
+    "framer-motion": "^11.15.0",
+    "lucide-react": "^0.468.0"
+  },
+  "devDependencies": {
+    "typescript": "5.7.2",
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "@tailwindcss/postcss": "0.0.0-insiders.2e87b1c",
+    "tailwindcss": "3.4.17",
+    "eslint": "9.17.0",
+    "eslint-config-next": "15.1.6",
+    "@eslint/eslintrc": "^3.2.0"
+  },
+  "keywords": [
+    "next.js",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "landing-page",
+    "can-tho",
+    "digital-platform"
+  ],
+  "author": "Báo & PT-TH Cần Thơ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cantho-media/digital-platform"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
