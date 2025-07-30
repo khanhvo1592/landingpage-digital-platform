@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description: "Khám phá các nền tảng số của Báo & Phát thanh - Truyền hình Cần Thơ. Tin tức, truyền hình trực tuyến, ứng dụng di động.",
   keywords: "Báo Cần Thơ, Phát thanh Truyền hình, Chuyển đổi số, Tin tức Cần Thơ",
   authors: [{ name: "Báo & PT-TH Cần Thơ" }],
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "Chuyển đổi số cùng Báo & PT-TH Cần Thơ",
@@ -18,6 +17,11 @@ export const metadata: Metadata = {
     locale: "vi_VN",
   },
 };
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export default function RootLayout({
   children,
