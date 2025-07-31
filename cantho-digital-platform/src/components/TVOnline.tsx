@@ -208,7 +208,7 @@ export default function TVOnline() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 relative overflow-hidden">
+    <section id="tv-online" className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>

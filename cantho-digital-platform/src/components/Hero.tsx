@@ -44,40 +44,33 @@ export default function Hero({ onShowWelcomeModal }: HeroProps) {
               Khám phá các nền tảng số hiện đại, cập nhật tin tức mọi lúc mọi nơi
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap gap-4"
-            >
-              <motion.button
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <motion.a
+                href="#tv-online"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('nen-tang')}
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl"
               >
-                Khám phá ngay
-              </motion.button>
-
-              <motion.button
+                Xem trực tuyến
+              </motion.a>
+              <motion.a
+                href="#download"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('download')}
-                className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors shadow-lg hover:shadow-xl"
+                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 border border-white/20"
               >
                 Tải ứng dụng
-              </motion.button>
-
+              </motion.a>
               <motion.button
+                id="show-welcome-modal"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={onShowWelcomeModal}
-                className="bg-gray-100 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors shadow-lg hover:shadow-xl flex items-center gap-2"
+                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 border border-white/20"
               >
-                <i className="fas fa-info-circle"></i>
+                <i className="fas fa-info-circle mr-2"></i>
                 Xem giới thiệu
               </motion.button>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Image */}

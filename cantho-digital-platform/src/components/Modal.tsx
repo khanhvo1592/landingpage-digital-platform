@@ -52,22 +52,6 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
             </button>
           </div>
 
-          {platform.channels && (
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Các kênh:</h3>
-              <div className="flex flex-wrap gap-2">
-                {platform.channels.map((channel, index) => (
-                  <span
-                    key={index}
-                    className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                  >
-                    {channel}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900">Liên kết:</h3>
             <div className="grid gap-3">
@@ -100,52 +84,78 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
   )
 
   const renderWelcomeModal = () => (
-    <div className="bg-white rounded-2xl max-w-2xl w-full mx-4">
+    <div className="bg-white rounded-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
       <div className="p-8">
         <div className="text-center mb-8">
           <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i className="fas fa-hand-wave text-3xl text-white"></i>
+            <i className="fas fa-broadcast-tower text-3xl text-white"></i>
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Chào mừng bạn!
+            🎉 THÔNG BÁO MỚI
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Khám phá hệ sinh thái nền tảng số đa dạng của Báo & Phát thanh - Truyền hình Cần Thơ. 
-            Chúng tôi cung cấp tin tức, truyền hình trực tuyến, phát thanh và nhiều nội dung thú vị khác.
-          </p>
+          <h3 className="text-2xl font-bold text-blue-600 mb-4">
+            Kênh Truyền hình & Phát thanh Khoa giáo – Giải trí
+          </h3>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          <div className="text-center p-4 bg-blue-50 rounded-lg">
-            <i className="fas fa-newspaper text-2xl text-blue-600 mb-2"></i>
-            <h3 className="font-semibold text-gray-900 mb-2">Tin tức cập nhật</h3>
-            <p className="text-sm text-gray-600">Thông tin mới nhất về Cần Thơ</p>
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          {/* Image */}
+          <div className="relative">
+            <img
+              src="/notice.png"
+              alt="Thông báo kênh mới"
+              className="w-full h-64 object-cover rounded-xl shadow-lg"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
           </div>
-          <div className="text-center p-4 bg-green-50 rounded-lg">
-            <i className="fas fa-tv text-2xl text-green-600 mb-2"></i>
-            <h3 className="font-semibold text-gray-900 mb-2">Truyền hình trực tuyến</h3>
-            <p className="text-sm text-gray-600">Xem chương trình mọi lúc</p>
-          </div>
-          <div className="text-center p-4 bg-purple-50 rounded-lg">
-            <i className="fas fa-radio text-2xl text-purple-600 mb-2"></i>
-            <h3 className="font-semibold text-gray-900 mb-2">Phát thanh online</h3>
-            <p className="text-sm text-gray-600">Nghe radio mọi nơi</p>
-          </div>
-          <div className="text-center p-4 bg-orange-50 rounded-lg">
-            <i className="fas fa-mobile-alt text-2xl text-orange-600 mb-2"></i>
-            <h3 className="font-semibold text-gray-900 mb-2">Ứng dụng di động</h3>
-            <p className="text-sm text-gray-600">Tải app để trải nghiệm tốt hơn</p>
+
+          {/* Content */}
+          <div className="space-y-4 text-gray-700 leading-relaxed">
+            <p className="text-lg">
+              Từ ngày <strong>01/8/2025</strong>, Báo và Phát thanh, Truyền hình Cần Thơ chính thức đưa vào vận hành:
+            </p>
+            
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <p className="font-semibold">Kênh Truyền hình Khoa giáo – Giải trí (Cần Thơ 2)</p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <p className="font-semibold">Kênh Phát thanh Khoa giáo – Giải trí (FM 89,6MHz)</p>
+              </div>
+            </div>
+
+            <p className="text-lg mt-6">
+              Phục vụ nội dung khoa giáo, đời sống, văn hóa – giải trí đa nền tảng. Với định hướng <strong>hiện đại – gần gũi – nhân văn</strong>, hướng tới việc lan tỏa thông tin hữu ích, truyền cảm hứng tích cực và đồng hành cùng sự phát triển của cộng đồng.
+            </p>
+
+            <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
+              <p className="text-lg font-semibold text-blue-800">
+                👉 Hãy đón xem – đón nghe – và đồng hành cùng chúng tôi!
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center gap-4">
           <motion.button
             onClick={onClose}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
           >
-            Bắt đầu khám phá
+            <i className="fas fa-tv mr-2"></i>
+            Xem Truyền hình
+          </motion.button>
+          <motion.button
+            onClick={onClose}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+          >
+            <i className="fas fa-radio mr-2"></i>
+            Nghe Phát thanh
           </motion.button>
         </div>
       </div>
