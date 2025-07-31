@@ -104,7 +104,7 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
             <img
               src="/notice.png"
               alt="Thông báo kênh mới"
-              className="w-full h-48 object-cover rounded-lg shadow-md"
+              className="w-full aspect-video object-cover rounded-lg shadow-md"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
           </div>
