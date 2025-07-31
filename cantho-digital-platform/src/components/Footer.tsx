@@ -13,10 +13,12 @@ export default function Footer() {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-xl font-bold">Báo & PT-TH Cần Thơ</h3>
+            <h3 className="text-xl font-bold">TRANG TTĐT BÁO VÀ PHÁT THANH, TRUYỀN HÌNH CẦN THƠ</h3>
             <p className="text-gray-400 leading-relaxed">
-              Đơn vị truyền thông chính thống của thành phố Cần Thơ, 
-              tiên phong trong việc chuyển đổi số và ứng dụng công nghệ hiện đại.
+              <strong>Quyền Tổng Biên tập:</strong> HUỲNH HOÀNG MẾN
+            </p>
+            <p className="text-gray-400 leading-relaxed">
+              <strong>Giấy phép số:</strong> 153/GP-TTĐT, cấp lại lần 2 ngày 18/12/2024
             </p>
             <div className="flex space-x-4">
               <motion.a
@@ -117,19 +119,23 @@ export default function Footer() {
             transition={{ delay: 0.3 }}
             className="space-y-4"
           >
-            <h3 className="text-lg font-semibold">Liên hệ</h3>
+            <h3 className="text-lg font-semibold">Thông tin liên hệ</h3>
             <div className="space-y-2 text-gray-400">
               <div className="flex items-center space-x-2">
                 <i className="fas fa-map-marker-alt text-blue-400"></i>
-                <span>123 Đường ABC, Quận Ninh Kiều, TP. Cần Thơ</span>
+                <span>Số 409 đường 30/4, P. Tân An, Thành phố Cần Thơ</span>
               </div>
               <div className="flex items-center space-x-2">
                 <i className="fas fa-phone text-green-400"></i>
-                <span>0979989978</span>
+                <span>(84) 0292.3838750</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <i className="fas fa-fax text-yellow-400"></i>
+                <span>(84) 0292.3820199</span>
               </div>
               <div className="flex items-center space-x-2">
                 <i className="fas fa-envelope text-purple-400"></i>
-                <span>contact@baocantho.com.vn</span>
+                <span>daiptthtpct@cantho.gov.vn</span>
               </div>
             </div>
           </motion.div>
@@ -143,7 +149,7 @@ export default function Footer() {
           className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
         >
           <p>
-            © 2024 Báo & Phát thanh - Truyền hình Cần Thơ. Tất cả quyền được bảo lưu.
+            © 2025 - TRANG TTĐT BÁO VÀ PHÁT THANH, TRUYỀN HÌNH CẦN THƠ
           </p>
           <p className="mt-2 text-sm">
             Phát triển bởi đội ngũ công nghệ Báo & PT-TH Cần Thơ
