@@ -10,6 +10,7 @@ export default function TVOnline() {
   const [currentChannel, setCurrentChannel] = useState('cantho-tv')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [volume, setVolume] = useState(0) // Bắt đầu với volume 0 để fade in
   const videoRef = useRef<HTMLVideoElement>(null)
   const hlsRef = useRef<Hls | null>(null)
 
@@ -43,6 +44,30 @@ export default function TVOnline() {
       }
     }
   }, [])
+
+  // Hàm fade in âm lượng
+  const fadeInVolume = () => {
+    if (videoRef.current) {
+      const video = videoRef.current
+      const targetVolume = 1.0
+      const duration = 2000 // 2 giây
+      const steps = 20
+      const stepDuration = duration / steps
+      const volumeStep = targetVolume / steps
+      
+      let currentStep = 0
+      const fadeInterval = setInterval(() => {
+        currentStep++
+        const newVolume = Math.min(currentStep * volumeStep, targetVolume)
+        video.volume = newVolume
+        setVolume(newVolume)
+        
+        if (currentStep >= steps) {
+          clearInterval(fadeInterval)
+        }
+      }, stepDuration)
+    }
+  }
 
   const handlePlayStream = async () => {
     
@@ -82,9 +107,18 @@ export default function TVOnline() {
         hls.loadSource(currentChannelData.streamUrl)
 
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          // Bắt đầu với volume 0
+          video.volume = 0
+          setVolume(0)
+          
           video.play().then(() => {
             setIsPlaying(true)
             setIsLoading(false)
+            
+            // Bắt đầu fade in âm lượng sau 500ms
+            setTimeout(() => {
+              fadeInVolume()
+            }, 500)
           }).catch((err) => {
             setError('Không thể phát video. Vui lòng thử lại.')
             setIsLoading(false)
@@ -109,16 +143,26 @@ export default function TVOnline() {
               default:
                 setError('Không thể tải stream. Vui lòng thử lại.')
             }
+            setIsLoading(false)
           }
-          setIsLoading(false)
         })
 
       } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = currentChannelData.streamUrl
+        
         video.addEventListener('loadedmetadata', () => {
+          // Bắt đầu với volume 0
+          video.volume = 0
+          setVolume(0)
+          
           video.play().then(() => {
             setIsPlaying(true)
             setIsLoading(false)
+            
+            // Bắt đầu fade in âm lượng sau 500ms
+            setTimeout(() => {
+              fadeInVolume()
+            }, 500)
           }).catch((err) => {
             setError('Không thể phát video. Vui lòng thử lại.')
             setIsLoading(false)
@@ -148,21 +192,14 @@ export default function TVOnline() {
       videoRef.current.src = ''
     }
     setIsPlaying(false)
-    setError(null)
+    setVolume(0)
   }
 
   const handleChannelChange = (channelId: string) => {
     setCurrentChannel(channelId)
     setIsPlaying(false)
+    setVolume(0)
     setError(null)
-    if (hlsRef.current) {
-      hlsRef.current.destroy()
-      hlsRef.current = null
-    }
-    if (videoRef.current) {
-      videoRef.current.pause()
-      videoRef.current.src = ''
-    }
   }
 
   const handleRetry = () => {
@@ -209,7 +246,6 @@ export default function TVOnline() {
                   className="w-full h-full object-cover"
                   controls
                   autoPlay
-                  muted
                   playsInline
                   crossOrigin="anonymous"
                   style={{ display: isPlaying ? 'block' : 'none' }}
@@ -268,6 +304,12 @@ export default function TVOnline() {
                       <div className="bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 text-white text-xs flex items-center space-x-2">
                         <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
                         <span>Đang phát</span>
+                        {volume < 1 && volume > 0 && (
+                          <div className="flex items-center space-x-1">
+                            <i className="fas fa-volume-up text-yellow-400"></i>
+                            <span className="text-yellow-400">{Math.round(volume * 100)}%</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
