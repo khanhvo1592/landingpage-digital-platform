@@ -919,12 +919,31 @@ section {
     color: #f59e0b;
 }
 
+.footer-section h3 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
 .footer-section ul {
     list-style: none;
 }
 
 .footer-section ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.footer-section ul li i {
+    color: #f59e0b;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
 }
 
 .footer-section a {
@@ -963,6 +982,7 @@ section {
     padding-top: 2rem;
     border-top: 1px solid #374151;
     color: #9ca3af;
+    font-weight: 500;
 }
 
 /* Responsive Design */
