@@ -40,11 +40,11 @@ export default function Header() {
             className="flex-shrink-0"
           >
             <Image
-              src="https://via.placeholder.com/200x60/1e40af/ffffff?text=Báo+&+Đài+PT-TH+Cần+Thơ"
+              src="/logo.png"
               alt="Logo Báo & PT-TH Cần Thơ"
               width={200}
               height={60}
-              className="h-12 w-auto"
+              className="h-20 w-auto"
             />
           </motion.div>
 

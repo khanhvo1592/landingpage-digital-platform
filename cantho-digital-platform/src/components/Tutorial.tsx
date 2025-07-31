@@ -88,21 +88,15 @@ export default function Tutorial() {
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop&crop=center"
+              <img
+                src="https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=500&h=300&fit=crop&crop=center"
                 alt="Hướng dẫn sử dụng"
-                width={500}
-                height={300}
-                className="w-full"
+                className="w-full h-80 object-cover"
               />
-              <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/90 backdrop-blur-sm rounded-full p-6 cursor-pointer shadow-lg"
-                >
-                  <i className="fas fa-play-circle text-4xl text-blue-600"></i>
-                </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <h3 className="text-2xl font-bold mb-2">Hướng dẫn sử dụng</h3>
+                <p className="text-lg opacity-90">Xem video hướng dẫn chi tiết</p>
               </div>
             </div>
             <p className="text-center mt-4 text-gray-600 font-medium">

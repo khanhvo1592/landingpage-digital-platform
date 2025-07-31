@@ -19,7 +19,7 @@ export default function TVOnline() {
       id: 'cantho-tv',
       name: 'Cần Thơ TV',
       description: 'Kênh truyền hình chính thức của TP. Cần Thơ',
-      image: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=400&h=250&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400&h=250&fit=crop&crop=center',
       status: 'live',
       streamUrl: 'https://megasystems-6c680321cd.gw-dthcdn.com/haugiangtv/haugiangtv.m3u8' // Direct media playlist
     },
@@ -27,7 +27,7 @@ export default function TVOnline() {
       id: 'cantho-radio',
       name: 'Phát thanh Cần Thơ',
       description: 'Nghe radio trực tuyến, podcast địa phương',
-      image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=250&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=400&h=250&fit=crop&crop=center',
       status: 'live',
       streamUrl: 'https://60acee235f4d5.streamlock.net:443/HGTVR/hgtvradio/chunklist_w1185739904.m3u8' // Media playlist
     }

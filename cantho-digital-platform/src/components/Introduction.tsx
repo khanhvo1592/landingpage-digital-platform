@@ -41,22 +41,16 @@ export default function Introduction() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=250&fit=crop&crop=center"
+            <div className="relative group cursor-pointer">
+              <img
+                src="https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=400&h=250&fit=crop&crop=center"
                 alt="Video giới thiệu"
-                width={400}
-                height={250}
-                className="w-full"
+                className="w-full h-64 object-cover rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
               />
-              <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-white/90 backdrop-blur-sm rounded-full p-6 cursor-pointer shadow-lg"
-                >
-                  <i className="fas fa-play-circle text-4xl text-blue-600"></i>
-                </motion.div>
+              <div className="absolute inset-0 bg-black/40 rounded-2xl group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i className="fas fa-play text-white text-2xl ml-1"></i>
+                </div>
               </div>
             </div>
             <p className="text-center mt-4 text-gray-600 font-medium">

@@ -36,7 +36,7 @@ const platformsData: Platform[] = [
     description: 'Xem truyền hình trực tuyến, chương trình địa phương',
     category: 'tv',
     icon: 'fas fa-tv',
-    image: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=400&h=250&fit=crop&crop=center',
+    image: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400&h=250&fit=crop&crop=center',
     links: [
       { label: 'Xem trực tuyến', url: '#', type: 'website' },
       { label: 'Lịch phát sóng', url: '#', type: 'website' }
@@ -48,7 +48,7 @@ const platformsData: Platform[] = [
     description: 'Nghe radio trực tuyến, podcast địa phương',
     category: 'radio',
     icon: 'fas fa-radio',
-    image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=250&fit=crop&crop=center',
+    image: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=400&h=250&fit=crop&crop=center',
     links: [
       { label: 'Nghe trực tuyến', url: '#', type: 'website' },
       { label: 'Podcast', url: '#', type: 'website' }
@@ -117,52 +117,41 @@ const platformsData: Platform[] = [
     icon: 'fab fa-facebook',
     image: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=400&h=250&fit=crop&crop=center',
     links: [
-      { label: 'Xem trang', url: '#', type: 'social' }
+      { label: 'Theo dõi', url: '#', type: 'social' }
     ]
   },
   {
-    id: 'facebook-ptth-cantho',
-    name: 'PT-TH Cần Thơ - Facebook',
-    description: 'Trang Facebook của Phát thanh Truyền hình Cần Thơ',
+    id: 'facebook-cantho-tv',
+    name: 'Truyền hình Cần Thơ - Facebook',
+    description: 'Trang Facebook của Truyền hình Cần Thơ',
     category: 'facebook',
     icon: 'fab fa-facebook',
     image: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=400&h=250&fit=crop&crop=center',
     links: [
-      { label: 'Xem trang', url: '#', type: 'social' }
+      { label: 'Theo dõi', url: '#', type: 'social' }
     ]
   },
   {
-    id: 'facebook-cantho-today',
-    name: 'Cần Thơ Today - Facebook',
-    description: 'Trang Facebook tin tức hàng ngày',
-    category: 'facebook',
-    icon: 'fab fa-facebook',
-    image: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=400&h=250&fit=crop&crop=center',
-    links: [
-      { label: 'Xem trang', url: '#', type: 'social' }
-    ]
-  },
-  {
-    id: 'zalo-official',
-    name: 'Zalo Official Account',
-    description: 'Tài khoản Zalo chính thức của Cần Thơ',
+    id: 'zalo-bao-cantho',
+    name: 'Báo Cần Thơ - Zalo',
+    description: 'Kênh Zalo chính thức của Báo Cần Thơ',
     category: 'zalo',
     icon: 'fas fa-comments',
-    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=250&fit=crop&crop=center',
+    image: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=400&h=250&fit=crop&crop=center',
     links: [
       { label: 'Kết nối Zalo', url: '#', type: 'social' }
     ]
   },
   {
-    id: 'mobile-app',
-    name: 'Mobile App Cần Thơ',
-    description: 'Ứng dụng di động tổng hợp tất cả nền tảng',
+    id: 'app-cantho-mobile',
+    name: 'Cần Thơ Mobile App',
+    description: 'Ứng dụng di động chính thức của Cần Thơ',
     category: 'app',
     icon: 'fas fa-mobile-alt',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop&crop=center',
     links: [
-      { label: 'App Store', url: '#', type: 'download' },
-      { label: 'Google Play', url: '#', type: 'download' }
+      { label: 'Tải Android', url: '#', type: 'download' },
+      { label: 'Tải iOS', url: '#', type: 'download' }
     ]
   }
 ]

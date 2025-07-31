@@ -92,14 +92,14 @@ export default function Hero({ onShowWelcomeModal }: HeroProps) {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="relative z-10"
             >
-              <Image
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&crop=center"
-                alt="Digital Transformation"
-                width={600}
-                height={400}
-                className="rounded-2xl shadow-2xl"
-                priority
-              />
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600&h=400&fit=crop&crop=center"
+                  alt="Digital Media Platform"
+                  className="w-full h-auto rounded-2xl shadow-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
+              </div>
             </motion.div>
 
             {/* Decorative elements */}

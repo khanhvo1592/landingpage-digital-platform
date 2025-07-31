@@ -107,19 +107,14 @@ export default function Download() {
             viewport={{ once: true }}
             className="relative"
           >
-            <motion.div
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-            >
-              <Image
+            <div className="relative">
+              <img
                 src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=600&fit=crop&crop=center"
                 alt="Mobile App"
-                width={400}
-                height={600}
-                className="rounded-2xl shadow-2xl"
+                className="w-full h-auto rounded-2xl shadow-2xl"
               />
-            </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl"></div>
+            </div>
 
             {/* Decorative elements */}
             <motion.div
