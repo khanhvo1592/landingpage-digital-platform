@@ -86,19 +86,19 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
   const renderWelcomeModal = () => (
     <div className="bg-white rounded-2xl max-w-3xl w-full mx-4">
       <div className="p-6">
-        <div className="text-center mb-6">
+        <div className="text-center mb-4">
           <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
             <i className="fas fa-broadcast-tower text-2xl text-white"></i>
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
             🎉 THÔNG BÁO MỚI
           </h2>
-          <h3 className="text-xl font-bold text-blue-600 mb-4">
+          <h3 className="text-xl font-bold text-blue-600 mb-3">
             Kênh Truyền hình & Phát thanh Khoa giáo – Giải trí
           </h3>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 mb-6">
+        <div className="grid lg:grid-cols-2 gap-6 mb-4">
           {/* Image */}
           <div className="relative">
             <img
@@ -106,7 +106,7 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
               alt="Thông báo kênh mới"
               className="w-full aspect-video object-cover rounded-lg shadow-md"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+            <div className="absolute inset-0 bg-gradient-to-t rounded-lg"></div>
           </div>
 
           {/* Content */}
@@ -126,11 +126,11 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
               </div>
             </div>
 
-            <p className="text-base mt-4">
+            <p className="text-base mt-3">
               Phục vụ nội dung khoa giáo, đời sống, văn hóa – giải trí đa nền tảng. Với định hướng <strong>hiện đại – gần gũi – nhân văn</strong>, hướng tới việc lan tỏa thông tin hữu ích, truyền cảm hứng tích cực và đồng hành cùng sự phát triển của cộng đồng.
             </p>
 
-            <div className="mt-4 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+            <div className="mt-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
               <p className="text-base font-semibold text-blue-800">
                 👉 Hãy đón xem – đón nghe – và đồng hành cùng chúng tôi!
               </p>
@@ -138,24 +138,15 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex justify-center">
           <motion.button
             onClick={onClose}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl text-sm"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
           >
-            <i className="fas fa-tv mr-2"></i>
-            Xem Truyền hình
-          </motion.button>
-          <motion.button
-            onClick={onClose}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl text-sm"
-          >
-            <i className="fas fa-radio mr-2"></i>
-            Nghe Phát thanh
+            <i className="fas fa-search mr-2"></i>
+            Khám phá thêm
           </motion.button>
         </div>
       </div>
