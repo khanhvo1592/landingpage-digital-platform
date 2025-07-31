@@ -49,7 +49,7 @@ export default function Hero({ onShowWelcomeModal }: HeroProps) {
                 href="#tv-online"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-base font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
               >
                 Xem trực tuyến
               </motion.a>
@@ -57,7 +57,7 @@ export default function Hero({ onShowWelcomeModal }: HeroProps) {
                 href="#download"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 border border-white/20"
+                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 py-3 rounded-full text-base font-semibold transition-colors duration-300 border border-white/20 whitespace-nowrap"
               >
                 Tải ứng dụng
               </motion.a>
@@ -65,7 +65,7 @@ export default function Hero({ onShowWelcomeModal }: HeroProps) {
                 id="show-welcome-modal"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 border border-white/20"
+                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 py-3 rounded-full text-base font-semibold transition-colors duration-300 border border-white/20 whitespace-nowrap"
               >
                 <i className="fas fa-info-circle mr-2"></i>
                 Xem giới thiệu

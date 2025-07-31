@@ -84,66 +84,66 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
   )
 
   const renderWelcomeModal = () => (
-    <div className="bg-white rounded-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-      <div className="p-8">
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i className="fas fa-broadcast-tower text-3xl text-white"></i>
+    <div className="bg-white rounded-2xl max-w-3xl w-full mx-4">
+      <div className="p-6">
+        <div className="text-center mb-6">
+          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i className="fas fa-broadcast-tower text-2xl text-white"></i>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
             🎉 THÔNG BÁO MỚI
           </h2>
-          <h3 className="text-2xl font-bold text-blue-600 mb-4">
+          <h3 className="text-xl font-bold text-blue-600 mb-4">
             Kênh Truyền hình & Phát thanh Khoa giáo – Giải trí
           </h3>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+        <div className="grid lg:grid-cols-2 gap-6 mb-6">
           {/* Image */}
           <div className="relative">
             <img
               src="/notice.png"
               alt="Thông báo kênh mới"
-              className="w-full h-64 object-cover rounded-xl shadow-lg"
+              className="w-full h-48 object-cover rounded-lg shadow-md"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
           </div>
 
           {/* Content */}
-          <div className="space-y-4 text-gray-700 leading-relaxed">
-            <p className="text-lg">
+          <div className="space-y-3 text-gray-700 leading-relaxed">
+            <p className="text-base">
               Từ ngày <strong>01/8/2025</strong>, Báo và Phát thanh, Truyền hình Cần Thơ chính thức đưa vào vận hành:
             </p>
             
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <p className="font-semibold">Kênh Truyền hình Khoa giáo – Giải trí (Cần Thơ 2)</p>
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <p className="font-semibold text-sm">Kênh Truyền hình Khoa giáo – Giải trí (Cần Thơ 2)</p>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <p className="font-semibold">Kênh Phát thanh Khoa giáo – Giải trí (FM 89,6MHz)</p>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <p className="font-semibold text-sm">Kênh Phát thanh Khoa giáo – Giải trí (FM 89,6MHz)</p>
               </div>
             </div>
 
-            <p className="text-lg mt-6">
+            <p className="text-base mt-4">
               Phục vụ nội dung khoa giáo, đời sống, văn hóa – giải trí đa nền tảng. Với định hướng <strong>hiện đại – gần gũi – nhân văn</strong>, hướng tới việc lan tỏa thông tin hữu ích, truyền cảm hứng tích cực và đồng hành cùng sự phát triển của cộng đồng.
             </p>
 
-            <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
-              <p className="text-lg font-semibold text-blue-800">
+            <div className="mt-4 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+              <p className="text-base font-semibold text-blue-800">
                 👉 Hãy đón xem – đón nghe – và đồng hành cùng chúng tôi!
               </p>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-3">
           <motion.button
             onClick={onClose}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl text-sm"
           >
             <i className="fas fa-tv mr-2"></i>
             Xem Truyền hình
@@ -152,7 +152,7 @@ export default function Modal({ platform, isOpen, onClose, type }: ModalProps) {
             onClick={onClose}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+            className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl text-sm"
           >
             <i className="fas fa-radio mr-2"></i>
             Nghe Phát thanh
