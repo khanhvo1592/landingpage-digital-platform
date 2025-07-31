@@ -10,6 +10,8 @@ export default function TVOnline() {
   const [currentChannel, setCurrentChannel] = useState('cantho-tv')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [isMuted, setIsMuted] = useState(true) // Bắt đầu với âm thanh tắt
+  const [retryCount, setRetryCount] = useState(0) // Thêm retry counter
   const videoRef = useRef<HTMLVideoElement>(null)
   const hlsRef = useRef<Hls | null>(null)
 
@@ -43,6 +45,14 @@ export default function TVOnline() {
       }
     }
   }, [])
+
+  // Hàm bật/tắt âm thanh
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(!videoRef.current.muted)
+    }
+  }
 
   const handlePlayStream = async () => {
     
@@ -109,12 +119,13 @@ export default function TVOnline() {
               default:
                 setError('Không thể tải stream. Vui lòng thử lại.')
             }
+            setIsLoading(false)
           }
-          setIsLoading(false)
         })
 
       } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = currentChannelData.streamUrl
+        
         video.addEventListener('loadedmetadata', () => {
           video.play().then(() => {
             setIsPlaying(true)
@@ -148,21 +159,14 @@ export default function TVOnline() {
       videoRef.current.src = ''
     }
     setIsPlaying(false)
-    setError(null)
+    setIsMuted(true)
   }
 
   const handleChannelChange = (channelId: string) => {
     setCurrentChannel(channelId)
     setIsPlaying(false)
+    setIsMuted(true)
     setError(null)
-    if (hlsRef.current) {
-      hlsRef.current.destroy()
-      hlsRef.current = null
-    }
-    if (videoRef.current) {
-      videoRef.current.pause()
-      videoRef.current.src = ''
-    }
   }
 
   const handleRetry = () => {
@@ -171,12 +175,14 @@ export default function TVOnline() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 relative overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-black/20"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
-      
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      </div>
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -304,27 +310,18 @@ export default function TVOnline() {
                   </div>
                 )}
 
-                {/* Error message */}
+                {/* Error overlay */}
                 {error && (
                   <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
                     <div className="text-center text-white p-6">
-                      <i className="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
-                      <p className="text-lg font-semibold mb-2">Lỗi Stream</p>
-                      <p className="text-sm text-gray-300 mb-4">{error}</p>
-                      <div className="space-y-2">
-                        <button
-                          onClick={handleRetry}
-                          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors mr-2"
-                        >
-                          Thử lại
-                        </button>
-                        <button
-                          onClick={() => setError(null)}
-                          className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-                        >
-                          Đóng
-                        </button>
-                      </div>
+                      <i className="fas fa-exclamation-triangle text-4xl text-red-400 mb-4"></i>
+                      <p className="text-lg mb-4">{error}</p>
+                      <button
+                        onClick={handleRetry}
+                        className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                      >
+                        Thử lại
+                      </button>
                     </div>
                   </div>
                 )}
@@ -338,26 +335,29 @@ export default function TVOnline() {
             </div>
           </motion.div>
 
-          {/* Channel List */}
+          {/* Channel list */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-xl font-bold text-white mb-4">Các kênh khác</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">Kênh phát sóng</h3>
+            
             {channels.map((channel) => (
               <motion.div
                 key={channel.id}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleChannelChange(channel.id)}
-                className={`bg-white/10 backdrop-blur-sm rounded-xl p-4 cursor-pointer transition-all duration-300 ${
-                  currentChannel === channel.id ? 'bg-white/20 ring-2 ring-blue-400' : 'hover:bg-white/15'
+                className={`bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 cursor-pointer transition-all duration-300 border-2 ${
+                  currentChannel === channel.id 
+                    ? 'border-blue-500 bg-blue-900/30' 
+                    : 'border-transparent hover:border-blue-400/50'
                 }`}
               >
                 <div className="flex items-center space-x-4">
-                  <div className="relative w-16 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                  <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                     {channel.image && (
                       <Image
                         src={channel.image}
@@ -377,23 +377,6 @@ export default function TVOnline() {
             ))}
           </motion.div>
         </div>
-
-        {/* Call to action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            <i className="fas fa-tv mr-2"></i>
-            Xem tất cả kênh
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   )
