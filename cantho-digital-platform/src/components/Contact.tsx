@@ -58,7 +58,7 @@ export default function Contact() {
                     Địa chỉ
                   </h3>
                   <p className="text-gray-600">
-                    123 Đường ABC, Quận Ninh Kiều, TP. Cần Thơ
+                    Số 409 đường 30/4, P. Tân An, Thành phố Cần Thơ
                   </p>
                 </div>
               </div>
@@ -72,7 +72,21 @@ export default function Contact() {
                     Điện thoại
                   </h3>
                   <p className="text-gray-600">
-                    0979989978
+                    (84) 0292.3838750
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                  <i className="fas fa-fax text-yellow-600 text-xl"></i>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Fax
+                  </h3>
+                  <p className="text-gray-600">
+                    (84) 0292.3820199
                   </p>
                 </div>
               </div>
@@ -86,7 +100,7 @@ export default function Contact() {
                     Email
                   </h3>
                   <p className="text-gray-600">
-                    contact@baocantho.com.vn
+                    daiptthtpct@cantho.gov.vn
                   </p>
                 </div>
               </div>
